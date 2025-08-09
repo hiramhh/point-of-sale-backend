@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    restart: unless-stopped
+    environment:
+      - 'POSTGRES_DB=point-of-sale'
+      - 'POSTGRES_PASSWORD=point-of-sale'
+      - 'POSTGRES_USER=hiram'
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/data/postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=hiram@mail.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+      - PGADMIN_DEFAULT_PORT=80
+    ports:
+      - "5050:80"
+
+volumes:
+  pgdata:
