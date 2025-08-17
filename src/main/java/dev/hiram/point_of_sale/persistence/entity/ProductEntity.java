@@ -17,28 +17,34 @@ public class ProductEntity {
     // debe tener un maximo de 150
     // debe ser un dato unico
     @Column(nullable = false, length = 150, unique = true)
-    private String category;
-
-    @Column(nullable = false, length = 200)
-    private String description;
-
-    private String image;
-
-    //Maximo 7 caracteres
-    // Mximo 2 decimales
-    @Column(nullable = false,  precision = 7, scale = 2)
-    private BigDecimal price;
-
-    @Column(nullable = false, length = 200)
-    private String title;
-
-    // Agregar un fechamovto
-    private LocalDate fechaCompra;
+    private String categoria;
 
     // No debe ser nulleable
     // Debe de ser un numero maximo de 3 caracteres
     @Column(nullable = false, precision = 3)
-    private Integer count;
+    private Integer existencia;
+
+
+    @Column(nullable = false, length = 200)
+    private String descipcion;
+
+    @Column(nullable = false)
+    private String imagen;
+
+    //Maximo 7 caracteres
+    // Mximo 2 decimales
+    @Column(nullable = false,  precision = 7, scale = 2)
+    private BigDecimal precio;
+
+    @Column(nullable = false, length = 200)
+    private String titulo;
+
+
+    // Agregar un fechamovto
+    @Column(nullable = false)
+    private LocalDate fechaCompra;
+
+
 
     public Long getId() {
         return id;
@@ -47,28 +53,53 @@ public class ProductEntity {
     public void setId(Long id) {
         this.id = id;
     }
-    public Integer getCount() {
-        return count;
+
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
-    public String getTitle() {
-        return title;
+    public Integer getExistencia() {
+        return existencia;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setExistencia(Integer existencia) {
+        this.existencia = existencia;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public String getDescipcion() {
+        return descipcion;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setDescipcion(String descipcion) {
+        this.descipcion = descipcion;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public BigDecimal getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(BigDecimal precio) {
+        this.precio = precio;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public LocalDate getFechaCompra() {
@@ -79,27 +110,4 @@ public class ProductEntity {
         this.fechaCompra = fechaCompra;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCatogiry() {
-        return category;
-    }
-
-    public void setCatogiry(String catogiry) {
-        this.category = catogiry;
-    }
 }

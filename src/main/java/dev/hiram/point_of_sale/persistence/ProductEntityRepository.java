@@ -3,6 +3,7 @@ package dev.hiram.point_of_sale.persistence;
 import dev.hiram.point_of_sale.domain.dto.ProductDto;
 import dev.hiram.point_of_sale.domain.repository.ProductRepository;
 import dev.hiram.point_of_sale.persistence.crud.CrudProductEntity;
+import dev.hiram.point_of_sale.persistence.mapper.ProductMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -1,15 +1,14 @@
 package dev.hiram.point_of_sale.domain.dto;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public record ProductDto(
         String category,
         Integer count,
-        String descripcion,
+        String description,
         String image,
-        BigDecimal price,
+        Double price,
         String title,
-        LocalDate fecha_compra) {
+        LocalDate boughtDate) {
 
 }
