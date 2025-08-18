@@ -26,7 +26,7 @@ public class ProductEntity {
 
 
     @Column(nullable = false, length = 200)
-    private String descipcion;
+    private String descripcion;
 
     @Column(nullable = false)
     private String imagen;
@@ -70,12 +70,12 @@ public class ProductEntity {
         this.existencia = existencia;
     }
 
-    public String getDescipcion() {
-        return descipcion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescipcion(String descipcion) {
-        this.descipcion = descipcion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getImagen() {

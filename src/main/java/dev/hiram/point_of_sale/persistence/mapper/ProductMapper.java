@@ -8,18 +8,18 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {CategoryMapper.class})
 public interface ProductMapper {
 
     ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
 
-    @Mapping(source = "categoria", target="category")
+    @Mapping(source = "categoria", target="category", qualifiedByName = "stringToCategory")
     @Mapping(source = "existencia",target = "count")
     @Mapping(source = "descripcion",target = "description")
     @Mapping(source = "imagen",target = "image")
     @Mapping(source = "precio",target = "price")
     @Mapping(source = "titulo",target = "title")
-    @Mapping(source = "fecha_compra",target = "boughtDate")
+    @Mapping(source = "fechaCompra",target = "boughtDate")
     ProductDto toDto(ProductEntity entity);
     List<ProductDto> toDto(Iterable<ProductEntity> entities);
 
