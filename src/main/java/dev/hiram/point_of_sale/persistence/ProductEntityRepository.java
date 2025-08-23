@@ -3,6 +3,7 @@ package dev.hiram.point_of_sale.persistence;
 import dev.hiram.point_of_sale.domain.dto.ProductDto;
 import dev.hiram.point_of_sale.domain.repository.ProductRepository;
 import dev.hiram.point_of_sale.persistence.crud.CrudProductEntity;
+import dev.hiram.point_of_sale.persistence.entity.ProductEntity;
 import dev.hiram.point_of_sale.persistence.mapper.ProductMapper;
 import org.springframework.stereotype.Repository;
 
@@ -23,5 +24,12 @@ public class ProductEntityRepository implements ProductRepository {
     @Override
     public List<ProductDto> getAll() {
         return this.productMapper.toDto(this.crudProductEntity.findAll());
+    }
+
+    @Override
+    public ProductDto getById(long id) {
+        ProductEntity productEntity = this.crudProductEntity.findById(id).orElse(null);
+
+        return this.productMapper.toDto(productEntity);
     }
 }

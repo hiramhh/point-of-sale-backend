@@ -18,4 +18,8 @@ public class ProductService {
     public List<ProductDto> getAll(){
         return this.productRepository.getAll();
     }
+
+    public ProductDto getById(long id){
+        return this.productRepository.getById(id);
+    }
 }

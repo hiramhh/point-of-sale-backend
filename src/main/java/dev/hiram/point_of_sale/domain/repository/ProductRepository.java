@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ProductRepository {
     List<ProductDto> getAll();
+
+    ProductDto getById(long id);
 }
