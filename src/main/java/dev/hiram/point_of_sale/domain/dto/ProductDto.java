@@ -5,6 +5,7 @@ import dev.hiram.point_of_sale.domain.Category;
 import java.time.LocalDate;
 
 public record ProductDto(
+        Long id,
         Category category,
         Integer count,
         String description,

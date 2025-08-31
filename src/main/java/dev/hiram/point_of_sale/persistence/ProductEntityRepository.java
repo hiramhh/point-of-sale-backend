@@ -32,4 +32,11 @@ public class ProductEntityRepository implements ProductRepository {
 
         return this.productMapper.toDto(productEntity);
     }
+
+    public ProductDto save(ProductDto productDto){
+        ProductEntity productEntity = this.productMapper.toEntity(productDto);
+        productEntity.setExistencia(0);
+
+        return this.productMapper.toDto(this.crudProductEntity.save(productEntity));
+    }
 }

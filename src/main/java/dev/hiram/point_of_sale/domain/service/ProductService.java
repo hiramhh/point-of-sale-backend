@@ -22,4 +22,8 @@ public class ProductService {
     public ProductDto getById(long id){
         return this.productRepository.getById(id);
     }
+
+    public ProductDto add(ProductDto productDto){
+        return this.productRepository.save(productDto);
+    }
 }
