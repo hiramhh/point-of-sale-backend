@@ -2,6 +2,7 @@ package dev.hiram.point_of_sale.web.controller;
 
 import dev.hiram.point_of_sale.domain.dto.ProductDto;
 import dev.hiram.point_of_sale.domain.service.ProductService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,12 +21,20 @@ public class ProductController {
 
 
     @GetMapping
-    public List<ProductDto> getAll(){
-        return this.productService.getAll();
+    public ResponseEntity<List<ProductDto>> getAll(){
+
+        return ResponseEntity.ok(this.productService.getAll());
     }
 
     @GetMapping("/{id}")
-    public ProductDto getById(@PathVariable long id){
-        return this.productService.getById(id);
+    public ResponseEntity<ProductDto> getById(@PathVariable long id){
+
+        ProductDto productDto = this.productService.getById(id);
+
+        if (productDto == null){
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(productDto);
     }
 }

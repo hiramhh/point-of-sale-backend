@@ -6,5 +6,15 @@ public enum Category {
     REGLAS,
     PLIEGOS,
     METROS,
-    PLUMONES
+    PLUMONES,
+    BOLIGRAFOS,
+    CUADERNOS,
+    CARPETAS,
+    PAPEL,
+    MARCADORES,
+    TIJERAS,
+    PEGAMENTOS,
+    ESTUCHES,
+    ENGRAPADORAS,
+    LAPICES
 }

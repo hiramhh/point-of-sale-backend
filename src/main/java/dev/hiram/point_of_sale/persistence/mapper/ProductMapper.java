@@ -11,7 +11,6 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {CategoryMapper.class})
 public interface ProductMapper {
 
-    ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
 
     @Mapping(source = "categoria", target="category", qualifiedByName = "stringToCategory")
     @Mapping(source = "existencia",target = "count")
