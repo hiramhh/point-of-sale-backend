@@ -13,4 +13,6 @@ public interface ProductRepository {
     ProductDto save(ProductDto productDto);
 
     ProductDto update(long id, UpdateProductDTO updateProductDTO);
+
+    void delete(long id);
 }

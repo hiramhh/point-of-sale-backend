@@ -32,4 +32,8 @@ public class ProductService {
     public ProductDto update(long id, UpdateProductDTO updateProductDTO){
         return this.productRepository.update(id, updateProductDTO);
     }
+
+    public void  delete(long id){
+        this.productRepository.delete(id);
+    }
 }

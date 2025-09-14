@@ -2,6 +2,7 @@ package dev.hiram.point_of_sale.persistence;
 
 import dev.hiram.point_of_sale.domain.dto.ProductDto;
 import dev.hiram.point_of_sale.domain.dto.UpdateProductDTO;
+import dev.hiram.point_of_sale.domain.exception.CategoryAlreadyExistsException;
 import dev.hiram.point_of_sale.domain.repository.ProductRepository;
 import dev.hiram.point_of_sale.persistence.crud.CrudProductEntity;
 import dev.hiram.point_of_sale.persistence.entity.ProductEntity;
@@ -36,8 +37,13 @@ public class ProductEntityRepository implements ProductRepository {
     }
 
     public ProductDto save(ProductDto productDto){
+
         ProductEntity productEntity = this.productMapper.toEntity(productDto);
-        productEntity.setExistencia(0);
+
+        if (this.crudProductEntity.findFirstByCategoria(productEntity.getCategoria()) != null){
+            throw new CategoryAlreadyExistsException(productEntity.getCategoria());
+        }
+
 
         return this.productMapper.toDto(this.crudProductEntity.save(productEntity));
     }
@@ -52,5 +58,10 @@ public class ProductEntityRepository implements ProductRepository {
         this.productMapper.updateEntityFromDto(updateProductDTO, productEntity);
 
          return this.productMapper.toDto(this.crudProductEntity.save(productEntity));
+    }
+
+    @Override
+    public void delete(long id) {
+        this.crudProductEntity.deleteById(id);
     }
 }
