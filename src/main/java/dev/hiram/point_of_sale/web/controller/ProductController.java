@@ -3,6 +3,7 @@ package dev.hiram.point_of_sale.web.controller;
 import dev.hiram.point_of_sale.domain.dto.ProductDto;
 import dev.hiram.point_of_sale.domain.dto.UpdateProductDTO;
 import dev.hiram.point_of_sale.domain.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +45,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductDto> update(@PathVariable long id, @RequestBody UpdateProductDTO updateProductDTO){
+    public ResponseEntity<ProductDto> update(@PathVariable long id, @RequestBody @Valid UpdateProductDTO updateProductDTO){
         return ResponseEntity.ok(this.productService.update(id, updateProductDTO));
     }
 
